@@ -185,8 +185,8 @@ public class FullscreenActivity extends AppCompatActivity {
 //        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
 //        startActivity(intent);
 
-//        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-//        startActivity(intent);
+        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+        startActivity(intent);
         Log.i("==TAG==","model : " + CommonUtil.getModel());
     }
 
