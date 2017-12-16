@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AccessibilityDemo</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- 辅助功能 -->
+    <string name="accessibility_name">【趣来电】</string>
+    <string name="accessibility_describe">开启辅助功能一键开启来电设置</string>
+
+</resources>

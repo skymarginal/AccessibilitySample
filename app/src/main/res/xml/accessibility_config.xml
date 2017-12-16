@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/accessibility_describe"
+    android:notificationTimeout="100" />
+
+<!--
+  accessibilityEventTypes ： 事件类型
+  accessibilityFeedbackType ：
+  accessibilityFlags ：
+  canRetrieveWindowContent ：
+  description ： 描述
+  notificationTimeout :
+  -->
