@@ -1,18 +1,17 @@
 package com.permission.setting.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.permission.setting.R;
-import com.permission.setting.utils.CommonUtil;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,8 +22,10 @@ import butterknife.OnClick;
  */
 public class FullscreenActivity extends AppCompatActivity {
 
-    private static final String ACTION = "action";
-    private static final String ACTION_START_ACCESSIBILITY_SETTING = "action_start_accessibility_setting";
+    public static void startFullscreenActivity(Context context){
+        Intent intent = new Intent(context,FullscreenActivity.class);
+        context.startActivity(intent);
+    }
 
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -99,7 +100,6 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_fullscreen);
 
         ButterKnife.bind(this);
@@ -180,14 +180,8 @@ public class FullscreenActivity extends AppCompatActivity {
     //开启辅助功能
     @OnClick(R.id.permission_open_accessibility)
     protected void openAccessibility(){
-//        Intent intent = new Intent(this,  AccessibilityOpenHelperActivity.class);
-//        intent.putExtra(ACTION, ACTION_START_ACCESSIBILITY_SETTING);
-//        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
-
         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
         startActivity(intent);
-        Log.i("==TAG==","model : " + CommonUtil.getModel());
     }
 
 }

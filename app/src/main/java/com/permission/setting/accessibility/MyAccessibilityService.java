@@ -6,7 +6,7 @@ import android.view.accessibility.AccessibilityEvent;
 
 import com.permission.setting.accessibility.brand.BrandConstant;
 import com.permission.setting.accessibility.brand.BrandOperatorInterface;
-import com.permission.setting.accessibility.brand.Huawei_P10_Operator;
+import com.permission.setting.accessibility.brand.huawei.Huawei_P10_Operator;
 import com.permission.setting.utils.CommonUtil;
 
 /**
@@ -30,6 +30,8 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         mOperatorService.onAccessibilityEvent(event);
+        //回退到上一级
+        //performGlobalAction(GLOBAL_ACTION_BACK);
     }
 
     @Override

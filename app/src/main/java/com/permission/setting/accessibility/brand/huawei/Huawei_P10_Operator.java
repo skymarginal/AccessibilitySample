@@ -1,4 +1,4 @@
-package com.permission.setting.accessibility.brand;
+package com.permission.setting.accessibility.brand.huawei;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,12 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import com.permission.setting.accessibility.brand.BrandOperatorInterface;
+import com.permission.setting.accessibility.guide.GuideFloatManager;
+import com.permission.setting.activity.FullscreenActivity;
+
 import java.util.List;
+
 
 /**
  * Created by 你的样子 on 2017/12/9.
@@ -31,21 +36,31 @@ public class Huawei_P10_Operator implements BrandOperatorInterface {
         return mInstance;
     }
 
+    private boolean isConcatenon = false;
+
     @Override
     public void init(Context context) {
         Log.i("==TAG==","-- init --");
         mContext = context;
-        Intent localIntent = new Intent();
-        localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-        localIntent.setData(Uri.fromParts("package", mContext.getPackageName(), null));
-        mContext.startActivity(localIntent);
+
+        if(!isConcatenon){
+            //打开遮挡层
+            GuideFloatManager.getInstance(mContext).showFullScreen();
+            //跳转应用详情
+            Intent localIntent = new Intent();
+            localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+            localIntent.setData(Uri.fromParts("package", mContext.getPackageName(), null));
+            mContext.startActivity(localIntent);
+            isConcatenon = true;
+        }
     }
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         Log.i("==TAG==","-- onAccessibilityEvent --");
         AccessibilityNodeInfo info = event.getSource();
+        if(info == null) return;
         openApplyDetail(info);
     }
 
@@ -105,7 +120,8 @@ public class Huawei_P10_Operator implements BrandOperatorInterface {
                             child4.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                         }
                         detail_4 = true;
-                        // performGlobalAction(GLOBAL_ACTION_BACK);
+                        //返回主页面 启动模式为singleTask，所以不会新建activity
+                        FullscreenActivity.startFullscreenActivity(mContext);
                     }
                 }
             }
