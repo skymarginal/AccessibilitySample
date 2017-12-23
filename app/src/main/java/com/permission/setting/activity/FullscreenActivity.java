@@ -1,8 +1,10 @@
 package com.permission.setting.activity;
 
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.permission.setting.R;
+
+import java.lang.reflect.Method;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

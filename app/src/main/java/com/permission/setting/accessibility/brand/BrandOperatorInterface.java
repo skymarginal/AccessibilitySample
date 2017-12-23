@@ -10,7 +10,7 @@ import android.view.accessibility.AccessibilityEvent;
  */
 public interface BrandOperatorInterface {
 
-    void init(Context context);
+    void onServiceConnected(Context context);
 
     void onAccessibilityEvent(AccessibilityEvent event);
 

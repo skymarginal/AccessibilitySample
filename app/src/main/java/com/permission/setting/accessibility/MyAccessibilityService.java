@@ -53,7 +53,7 @@ public class MyAccessibilityService extends AccessibilityService {
                 break;
         }
         if(mOperatorService != null){
-            mOperatorService.init(this);
+            mOperatorService.onServiceConnected(this);
         }
     }
 

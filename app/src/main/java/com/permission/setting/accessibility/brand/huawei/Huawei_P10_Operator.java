@@ -36,14 +36,14 @@ public class Huawei_P10_Operator implements BrandOperatorInterface {
         return mInstance;
     }
 
-    private boolean isConcatenon = false;
+    private boolean isConnected = false;
 
     @Override
-    public void init(Context context) {
-        Log.i("==TAG==","-- init --");
+    public void onServiceConnected(Context context) {
+        Log.i("==TAG==","-- Connected --");
         mContext = context;
 
-        if(!isConcatenon){
+        if(!isConnected){
             //打开遮挡层
             GuideFloatManager.getInstance(mContext).showFullScreen();
             //跳转应用详情
@@ -52,7 +52,7 @@ public class Huawei_P10_Operator implements BrandOperatorInterface {
             localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
             localIntent.setData(Uri.fromParts("package", mContext.getPackageName(), null));
             mContext.startActivity(localIntent);
-            isConcatenon = true;
+            isConnected = true;
         }
     }
 
