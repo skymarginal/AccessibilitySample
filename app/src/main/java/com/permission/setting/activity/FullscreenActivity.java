@@ -181,7 +181,9 @@ public class FullscreenActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
-    //开启辅助功能
+    /**
+     * 开启辅助功能
+     * */
     @OnClick(R.id.permission_open_accessibility)
     protected void openAccessibility(){
         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
